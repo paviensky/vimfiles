@@ -287,6 +287,8 @@ else
 endif
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+nmap <silent> <Leader>e :CommandTBuffer<CR>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
