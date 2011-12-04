@@ -377,3 +377,4 @@ au BufRead,BufNewFile *.jsm set ft=javascript syntax=javascript
 set noswapfile
 set guioptions-=L
 
+map <silent> <Leader>h :nohl<CR>
