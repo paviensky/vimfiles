@@ -122,3 +122,6 @@ hi link htmlEndTag           xmlEndTag
 hi xmlTag                    guifg=#E8BF6A
 hi xmlTagName                guifg=#E8BF6A
 hi xmlEndTag                 guifg=#E8BF6A
+
+" CoffeeScript support
+hi link coffeeSpecialVar     Constant
