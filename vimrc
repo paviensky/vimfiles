@@ -34,7 +34,7 @@ nmap <D-6> g^
 nmap <D-0> g^
 
 "add some line space for easy reading
-set linespace=4
+set linespace=2
 
 "disable visual bell
 set visualbell t_vb=
@@ -248,6 +248,7 @@ set hidden
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
+set t_Co=256
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
@@ -260,18 +261,21 @@ if has("gui_running")
         colorscheme railscasts2
         set guitablabel=%M%t
         set lines=40
-        set columns=115
+        set columns=117
     endif
     if has("gui_mac") || has("gui_macvim")
-        "set guifont=Menlo:h14
-        set guifont=Monaco:h12
+      " set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+      " set linespace=0 " font above looks best with no linespace
+      set guifont=Menlo\ for\ Powerline:h13
+      set linespace=2
+        " set guifont=Monaco:h12
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
         "macmenu &File.New\ Tab key=<nop>
         "map <D-t> :CommandT<CR>
         " make Mac's Option key behave as the Meta key
         set invmmta
-        set transparency=5
+        set transparency=0
         " customize leader to be easily accessible
         let mapleader = "ů"
     endif
@@ -368,9 +372,12 @@ if has("gui_mac") || has("gui_macvim")
   set nomacmeta
 endif
 map <S-TAB> <C-^>
-colorscheme railscasts2
-set linespace=2
-set wildignore+=tmp,.git,public/system/**,public/uploads/**,app/assets/images/**
+" colorscheme railscasts2
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
+
+set wildignore+=tmp,.git,public/system/**,public/uploads/**,app/assets/images/**,build/**
 
 au BufRead,BufNewFile *.jsm set ft=javascript syntax=javascript
 
@@ -378,3 +385,19 @@ set noswapfile
 set guioptions-=L
 
 map <silent> <Leader>h :nohl<CR>
+let g:bufExplorerShowRelativePath=1
+
+" thor support
+au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile Guardfile set filetype=ruby
+
+" highlighting rspecs in non-rails project
+" http://stackoverflow.com/questions/8848896/why-do-i-get-syntax-highlighting-for-rspec-only-in-some-projects-in-vim
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
