@@ -133,3 +133,6 @@
 [submodule "bundle/funcoo.vim"]
 	path = bundle/funcoo.vim
 	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "bundle/vim-flavored-markdown"]
+	path = bundle/vim-flavored-markdown
+	url = git://github.com/jtratner/vim-flavored-markdown.git
