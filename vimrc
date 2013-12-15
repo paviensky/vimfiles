@@ -377,7 +377,7 @@ set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
 
-set wildignore+=tmp,.git,public/system/**,public/uploads/**,app/assets/images/**,build/**
+set wildignore+=tmp,.git,public/system/**,public/uploads/**,app/assets/images/**,build/**,vendor/gems
 
 au BufRead,BufNewFile *.jsm set ft=javascript syntax=javascript
 
