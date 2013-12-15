@@ -389,6 +389,7 @@ let g:bufExplorerShowRelativePath=1
 
 " thor support
 au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile *.cap set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
 
 " highlighting rspecs in non-rails project
